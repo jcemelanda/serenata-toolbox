@@ -116,12 +116,14 @@ Within your `virtualenv <https://virtualenv.pypa.io/en/stable/>`_:
 Always add tests to your contribution — if you want to test it locally before opening the PR:
 
 ::
+
   $ pip install pytest pytest-cov
   $ pytest
 
 When the tests are passing, also check for coverage of the modules you edited or added — if you want to check it before opening the PR:
 
 ::
+
   $ pytest
   $ open htmlcov/index.html
 
@@ -144,6 +146,10 @@ Always suggest a version bump. We use `Semantic Versioning <http://semver.org>`_
 * MICRO: the API is the same, no risk of breaking code
 * MINOR: values have been added, existing values are unchanged
 * MAJOR: existing values have been changed or removed
+
+This is really important because every new code merged to `master` triggers the CI and then the CI triggers a new release to PyPI. The attemp to roll out a new version of the toolbox will fail without a version bump. So we do encorouge to add a version bump even if all you have changed is the `README.rst` — this is the way to keep the `README.rst` updated in PyPI.
+
+If you are not changing the API or `README.rst` in any sense and if you really do not want a version bump, you need to add `[skip ci]` to you commit message.
 
 And finally take *The Zen of Python* into account:
 
