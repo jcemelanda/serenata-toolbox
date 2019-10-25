@@ -1,8 +1,8 @@
 language: python
-python: 3.5
+python: 3.6
 cache:
   directories:
-    - $HOME/virtualenv/python3.5.3/
+    - $HOME/virtualenv/python3.6/
 
 jobs:
   include:
@@ -23,7 +23,9 @@ jobs:
           branch: master
 
 install:
-  - python setup.py develop
-  - pip install coveralls pytest pytest-cov
+  - rm -rf .coverage
+  - python -m pip install -U -e .
+  - python -m pip install -U coveralls pytest pytest-cov
 
-after_success: coveralls
+after_success:
+  - coveralls

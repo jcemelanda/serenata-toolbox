@@ -1,8 +1,8 @@
 *.egg-info/
 *.pyc
 .coverage
+.pytest_cache/
 __pycache__/
-config.ini
 htmlcov/
 build/
 dist/
